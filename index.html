@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GUSTO — un almanaque del gusto argentino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #17110c;
+    --bg-2: #201811;
+    --ink: #ece1d2;
+    --ink-dim: #b3a190;
+    --line: rgba(236,225,210,0.14);
+    --c-comida: #e2572b;
+    --c-musica: #2f9e8f;
+    --c-gente: #d9a531;
+    --c-vida: #9a7fd1;
+    --shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: inherit; }
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Public Sans', system-ui, sans-serif;
+    overflow: hidden;
+  }
+  body {
+    background: radial-gradient(ellipse at 20% 10%, #26190f 0%, var(--bg) 55%), var(--bg);
+  }
+
+  .stage {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  header {
+    position: absolute;
+    top: calc(22px + env(safe-area-inset-top, 0px));
+    left: 24px;
+    right: 24px;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+  }
+  .brand { pointer-events: auto; max-width: 420px; }
+  .brand h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(28px, 5vw, 44px);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.01em;
+  }
+  .brand p {
+    margin: 0;
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 36ch;
+  }
+  .count {
+    pointer-events: auto;
+    text-align: right;
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+  }
+  .count strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .legend {
+    position: absolute;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    left: 24px;
+    right: 24px;
+    z-index: 20;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(23,17,12,0.6);
+    backdrop-filter: blur(6px);
+    color: var(--ink);
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .chip:hover { transform: translateY(-2px); }
+  .chip.off { opacity: 0.35; }
+  .chip .dot { width: 9px; height: 9px; border-radius: 50%; }
+
+  .field {
+    position: absolute;
+    inset: 0;
+  }
+
+  .bubble {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--ink);
+    font-size: 12.5px;
+    line-height: 1.3;
+    cursor: pointer;
+    user-select: none;
+    animation: drift ease-in-out infinite alternate;
+    transition: filter 0.2s ease, opacity 0.3s ease;
+    will-change: transform;
+  }
+  .bubble span {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .bubble:hover { filter: brightness(1.18); }
+  .bubble.hidden { opacity: 0; pointer-events: none; }
+
+  @keyframes drift {
+    from { transform: translate(0, 0); }
+    to { transform: translate(var(--dx), var(--dy)); }
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,7,5,0.72);
+    backdrop-filter: blur(3px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 24px;
+  }
+  .overlay.open { display: flex; }
+  .card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+  .card .tag {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    color: #17110c;
+    font-weight: 600;
+  }
+  .card p.phrase {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0 0 16px 0;
+  }
+  .card p.meta {
+    color: var(--ink-dim);
+    font-size: 13px;
+    margin: 0;
+  }
+  .card button {
+    margin-top: 20px;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .card button:hover { border-color: var(--ink); }
+
+  .note {
+    position: absolute;
+    top: calc(22px + env(safe-area-inset-top, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    font-size: 11px;
+    color: var(--ink-dim);
+    background: rgba(23,17,12,0.55);
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    text-align: center;
+    display: none;
+  }
+  @media (max-width: 640px) {
+    header { flex-direction: column; gap: 14px; }
+    .count { text-align: left; }
+    .note { display: block; }
+    .brand p { max-width: none; }
+  }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .bubble { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <header>
+    <div class="brand">
+      <h1>Gusto</h1>
+      <p>Un almanaque de cómo hablamos del gusto: lo que nos gusta comer, escuchar, y de quién nos gusta la compañía. Tocá una burbuja.</p>
+    </div>
+    <div class="count"><strong id="visibleCount">0</strong> frases flotando<br><span id="statusNote" style="font-size:11px;">cargando…</span></div>
+  </header>
+
+  <div class="field" id="field"></div>
+
+  <div class="legend" id="legend"></div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="card" id="card">
+    <span class="tag" id="cardTag"></span>
+    <p class="phrase" id="cardPhrase"></p>
+    <p class="meta" id="cardMeta"></p>
+    <button id="closeCard">Cerrar</button>
+  </div>
+</div>
+
+<script>
+// DATA se carga en tiempo real desde data.json (generado todos los días por
+// el robot de GitHub Actions a partir de menciones reales en Reddit).
+// Estas frases de acá abajo son solo el respaldo ilustrativo que se muestra
+// la primera vez, antes de que el robot haya corrido por primera vez.
+const CATEGORIES = {
+  comida:  { label: 'Comida',   color: 'var(--c-comida)' },
+  musica:  { label: 'Música',   color: 'var(--c-musica)' },
+  gente:   { label: 'Gente',    color: 'var(--c-gente)' },
+  vida:    { label: 'Estilo de vida', color: 'var(--c-vida)' },
+  otro:    { label: 'Otros',    color: '#7d8a9e' },
+};
+
+const FALLBACK_DATA = [
+  { cat:'comida', text:'El asado con mucha sal no es de mi gusto.' },
+  { cat:'comida', text:'Este alfajor te lo recomiendo, es un gusto que no falla.' },
+  { cat:'comida', text:'A mi gusto, el mate lavado no vale la pena.' },
+  { cat:'comida', text:'Cada uno con su gusto, yo pongo dulce de leche en todo.' },
+  { cat:'musica', text:'Para mi gusto, el segundo disco es mejor que el primero.' },
+  { cat:'musica', text:'Este tema me dejó con gusto a poco, esperaba más.' },
+  { cat:'musica', text:'La lista que armaste es exactamente mi gusto musical.' },
+  { cat:'gente', text:'Mucho gusto, hace tiempo que quería conocerte.' },
+  { cat:'gente', text:'Fue un gusto compartir el laburo con este equipo.' },
+  { cat:'gente', text:'Se nota que lo hizo con gusto, se le ve en la cara.' },
+  { cat:'vida', text:'Me di el gusto de viajar solo una vez en la vida.' },
+  { cat:'vida', text:'Vivir con gusto propio es más importante que vivir rápido.' },
+  { cat:'vida', text:'Elegir carrera a gusto propio, no por lo que digan.' },
+  { cat:'comida', text:'El gusto amargo del café de la esquina no lo cambio por nada.' },
+];
+
+let DATA = FALLBACK_DATA;
+let usingFallback = true;
+
+const field = document.getElementById('field');
+const legend = document.getElementById('legend');
+const overlay = document.getElementById('overlay');
+const card = document.getElementById('card');
+const cardTag = document.getElementById('cardTag');
+const cardPhrase = document.getElementById('cardPhrase');
+const cardMeta = document.getElementById('cardMeta');
+const visibleCount = document.getElementById('visibleCount');
+
+const activeCats = new Set(Object.keys(CATEGORIES));
+
+function layoutBubbles() {
+  const w = field.clientWidth;
+  const h = field.clientHeight;
+  const margin = 60;
+  DATA.forEach((item, i) => {
+    const size = 96 + Math.floor(Math.random() * 70);
+    const x = margin + Math.random() * (w - margin * 2 - size);
+    const y = margin + 70 + Math.random() * (h - margin * 2 - size - 120);
+    item._x = x; item._y = y; item._size = size;
+  });
+}
+
+function render() {
+  field.innerHTML = '';
+  let visible = 0;
+  DATA.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'bubble' + (activeCats.has(item.cat) ? '' : ' hidden');
+    if (activeCats.has(item.cat)) visible++;
+    const c = CATEGORIES[item.cat];
+    el.style.left = item._x + 'px';
+    el.style.top = item._y + 'px';
+    el.style.width = item._size + 'px';
+    el.style.height = item._size + 'px';
+    el.style.background = `color-mix(in srgb, ${c.color} 30%, #17110c)`;
+    el.style.setProperty('--dx', (Math.random() * 26 - 13) + 'px');
+    el.style.setProperty('--dy', (Math.random() * 26 - 13) + 'px');
+    el.style.animationDuration = (5 + Math.random() * 5) + 's';
+    el.style.animationDelay = (Math.random() * -8) + 's';
+    el.tabIndex = 0;
+    el.setAttribute('role', 'button');
+    el.setAttribute('aria-label', item.text);
+    const span = document.createElement('span');
+    span.textContent = item.text;
+    el.appendChild(span);
+    el.addEventListener('click', () => openCard(item));
+    el.addEventListener('keypress', (e) => { if (e.key === 'Enter') openCard(item); });
+    field.appendChild(el);
+  });
+  visibleCount.textContent = visible;
+}
+
+function openCard(item) {
+  const c = CATEGORIES[item.cat];
+  cardTag.textContent = c.label;
+  cardTag.style.background = c.color;
+  cardPhrase.textContent = item.text;
+  cardMeta.textContent = 'Frase ilustrativa del prototipo · categoría: ' + c.label.toLowerCase();
+  overlay.classList.add('open');
+}
+document.getElementById('closeCard').addEventListener('click', () => overlay.classList.remove('open'));
+overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+
+function buildLegend() {
+  legend.innerHTML = '';
+  Object.entries(CATEGORIES).forEach(([key, c]) => {
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.innerHTML = `<span class="dot" style="background:${c.color}"></span>${c.label}`;
+    chip.addEventListener('click', () => {
+      if (activeCats.has(key)) { activeCats.delete(key); chip.classList.add('off'); }
+      else { activeCats.add(key); chip.classList.remove('off'); }
+      render();
+    });
+    legend.appendChild(chip);
+  });
+}
+
+async function loadRealData() {
+  try {
+    const res = await fetch('./data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('sin data.json todavía');
+    const json = await res.json();
+    const items = Array.isArray(json) ? json : json.items;
+    if (!items || !items.length) throw new Error('data.json vacío');
+    DATA = items.map(it => ({ cat: CATEGORIES[it.category] ? it.category : 'otro', text: it.text }));
+    usingFallback = false;
+    if (json.generated_at) {
+      document.getElementById('statusNote').textContent =
+        'Datos reales de Reddit · actualizado ' + new Date(json.generated_at).toLocaleString('es-AR');
+    } else {
+      document.getElementById('statusNote').textContent = 'Datos reales de Reddit';
+    }
+  } catch (e) {
+    document.getElementById('statusNote').textContent = 'Mostrando frases de ejemplo — todavía no corrió la recolección real';
+  }
+  layoutBubbles();
+  render();
+}
+
+layoutBubbles();
+render();
+buildLegend();
+loadRealData();
+window.addEventListener('resize', () => { layoutBubbles(); render(); });
+</script>
+
+</body>
+</html>
