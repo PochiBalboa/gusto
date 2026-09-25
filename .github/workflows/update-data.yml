@@ -1,4 +1,4 @@
-name: Actualizar datos de gusto
+name: Actualizar datos de gusto (Mercado Libre)
 
 on:
   schedule:
@@ -22,13 +22,10 @@ jobs:
           python-version: "3.13"
 
       - name: Instalar dependencias
-        run: pip install requests praw
+        run: pip install requests
 
       - name: Correr el recolector
-        env:
-          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
-          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-        run: python gusto_scraper.py --reddit --hours 24
+        run: python gusto_scraper.py --meli MLA899116906 MLA2842747978 MLA1154216485 MLA2764820540 MLA1519681677 MLA1445843893 MLA3612836800 MLA1496835113
 
       - name: Guardar data.json actualizado
         run: |
