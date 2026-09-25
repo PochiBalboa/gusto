@@ -2,65 +2,50 @@
   "generated_at": "2026-09-25T00:00:00Z",
   "note": "Snapshot curado a mano a partir de búsquedas reales en la web (no automático). Pedile a Claude una actualización cuando quieras uno nuevo.",
   "items": [
-    {
-      "source": "cookpad.com/ar",
-      "text": "En una receta de tofu al horno, la sal y las especias van todas \"a gusto\", como a cada quien le guste.",
-      "category": "comida"
-    },
-    {
-      "source": "foro de recetas (abroparaguas.com)",
-      "text": "Le quedó muy rico, aunque para su gusto se pasó un poco con la guindilla picante.",
-      "category": "comida"
-    },
-    {
-      "source": "juliaysusrecetas.com",
-      "text": "Para su gusto, la salsa del bacalao al chilindrón queda mejor bien triturada.",
-      "category": "comida"
-    },
-    {
-      "source": "foro de recetas (abroparaguas.com)",
-      "text": "Las berenjenas le parecieron ricas, pero para su gusto les faltaba más relleno.",
-      "category": "comida"
-    },
-    {
-      "source": "cofrederecuerdosmusicales.blogspot.com",
-      "text": "Sobre un disco de abril: dice que no arriesga nada, pero a su gusto le dan ganas de escucharlo más.",
-      "category": "musica"
-    },
-    {
-      "source": "woodyjagger.com",
-      "text": "A su gusto, el nuevo disco supera a los últimos trabajos de la banda que compara.",
-      "category": "musica"
-    },
-    {
-      "source": "mitocadiscosdual.blogspot.com",
-      "text": "Destaca el gusto impecable de una banda gallega para los arreglos de sus nuevas canciones.",
-      "category": "musica"
-    },
-    {
-      "source": "linkedin.com",
-      "text": "Un posteo saluda a toda una ciudad: \"mucho gusto en conocerte, Montevideo\".",
-      "category": "gente"
-    },
-    {
-      "source": "facebook.com",
-      "text": "Despide el año con un video: \"fue un gusto conocerte, 2025\", antes de recibir al que viene.",
-      "category": "gente"
-    },
-    {
-      "source": "miviajeporelmundo.com",
-      "text": "Una lectora le escribe a una bloguera que le dio muchísimo gusto encontrarse con su blog de viajes.",
-      "category": "gente"
-    },
-    {
-      "source": "blogtravel.com.ar",
-      "text": "Sostiene que viajar es, ante todo, una cuestión de gusto personal, no de tachar lugares famosos de una lista.",
-      "category": "vida"
-    },
-    {
-      "source": "news.booking.com",
-      "text": "Un informe de tendencias de viajes 2026 dice que la gente decora su cocina con souvenirs que reflejan su gusto personal.",
-      "category": "vida"
-    }
+    { "source": "cookpad.com/ar", "text": "En una receta de tofu al horno, la sal y las especias van todas \"a gusto\", como a cada quien le guste.", "category": "comida" },
+    { "source": "foro de recetas (abroparaguas.com)", "text": "Le quedó muy rico, aunque para su gusto se pasó un poco con la guindilla picante.", "category": "comida" },
+    { "source": "juliaysusrecetas.com", "text": "Para su gusto, la salsa del bacalao al chilindrón queda mejor bien triturada.", "category": "comida" },
+    { "source": "foro de recetas (abroparaguas.com)", "text": "Las berenjenas le parecieron ricas, pero para su gusto les faltaba más relleno.", "category": "comida" },
+    { "source": "foro de vinos (manerasdevivir.com)", "text": "Describe un gran reserva como fácil de beber, aunque algo marcado para su gusto.", "category": "comida" },
+    { "source": "breakingwine.substack.com", "text": "Un boletín de vino sostiene que el gusto no se estudia: ni los expertos coinciden en una cata a ciegas.", "category": "comida" },
+    { "source": "foro de mascotas (mediavida.com)", "text": "Cuenta que su perro solo come a gusto una marca puntual de carne, el resto lo deja.", "category": "comida" },
+    { "source": "cofrederecuerdosmusicales.blogspot.com", "text": "Sobre un disco de abril: dice que no arriesga nada, pero a su gusto le dan ganas de escucharlo más.", "category": "musica" },
+    { "source": "woodyjagger.com", "text": "A su gusto, el nuevo disco supera a los últimos trabajos de la banda que compara.", "category": "musica" },
+    { "source": "mitocadiscosdual.blogspot.com", "text": "Destaca el gusto impecable de una banda gallega para los arreglos de sus nuevas canciones.", "category": "musica" },
+    { "source": "tiktok.com", "text": "En un video, pregunta a sus seguidores cuál es su gusto musical culposo.", "category": "musica" },
+    { "source": "linkedin.com", "text": "Un posteo saluda a toda una ciudad: \"mucho gusto en conocerte, Montevideo\".", "category": "gente" },
+    { "source": "facebook.com", "text": "Despide el año con un video: \"fue un gusto conocerte, 2025\", antes de recibir al que viene.", "category": "gente" },
+    { "source": "miviajeporelmundo.com", "text": "Una lectora le escribe a una bloguera que le dio muchísimo gusto encontrarse con su blog de viajes.", "category": "gente" },
+    { "source": "cuantarazon.com", "text": "En un foro, alguien agradece un comentario que le hizo apreciar no tener los mismos gustos que todos.", "category": "gente" },
+    { "source": "medium.com", "text": "En un ensayo personal, escribe que sobre gustos, a su parecer, todavía hay mucho por escribir.", "category": "gente" },
+    { "source": "forum.wordreference.com", "text": "En un foro de idiomas, preguntan cómo se traduce la expresión \"sobre gustos no hay nada escrito\".", "category": "gente" },
+    { "source": "medium.com", "text": "Le agradece a un lector su comentario y le dice que fue un gusto conocerlo.", "category": "gente" },
+    { "source": "blogtravel.com.ar", "text": "Sostiene que viajar es, ante todo, una cuestión de gusto personal, no de tachar lugares famosos de una lista.", "category": "vida" },
+    { "source": "news.booking.com", "text": "Un informe de tendencias de viajes 2026 dice que la gente decora su cocina con souvenirs que reflejan su gusto personal.", "category": "vida" },
+    { "source": "blog-decoracion.blogspot.com", "text": "Un blog de decoración promete ayudar a lograr la casa que se adapte al gusto y estilo de cada uno.", "category": "vida" },
+    { "source": "noticias.perfil.com", "text": "Una nota sobre tendencias 2026 habla de una decoración de verano que no renuncia al buen gusto.", "category": "vida" },
+    { "source": "hola.com", "text": "Dice que ya quedaron atrás los tiempos en que el minimalismo dictaba las reglas del buen gusto en decoración.", "category": "vida" },
+    { "source": "linkatomic.com", "text": "Recomienda un blog que enseña las pautas básicas para decorar la casa con buen gusto.", "category": "vida" },
+    { "source": "museodelprado.es", "text": "El Museo del Prado conserva una pintura llamada simplemente \"El Gusto\", de Jan Brueghel el Viejo y Rubens.", "category": "otro" },
+    { "source": "fragrantica.es", "text": "En una reseña de perfumes, describe una salida demasiado punzante y cítrica para su gusto.", "category": "otro" },
+    { "source": "fragrantica.es", "text": "De un perfume masculino dice que es de esos aromas que, para su gusto, uno no quiere que se vayan.", "category": "otro" },
+    { "source": "fragrantica.es", "text": "En una reseña, marca un perfume como demasiado dulce para su gusto, aunque lo cree unisex.", "category": "otro" },
+    { "source": "fragrantica.es", "text": "Elogia un perfume de Lattafa a pesar de su fea botella, aclara: \"a mi gusto\".", "category": "otro" },
+    { "source": "fragrantica.es", "text": "Para su gusto, esta fragancia está entre las mejores de la casa Amouage.", "category": "otro" },
+    { "source": "fragrantica.es", "text": "Dice que, para su gusto personal, este perfume es muy difícil de superar en precio y calidad.", "category": "otro" },
+    { "source": "facebook.com", "text": "Confiesa que la serie Narcos: México es su gusto culposo del año.", "category": "otro" },
+    { "source": "facebook.com", "text": "En otro posteo, alguien admite que las películas de Adam Sandler son su gusto culposo.", "category": "otro" },
+    { "source": "tucson.com", "text": "Una reseña llama a Narcos: México un gusto culposo, entretenido a pesar de todo.", "category": "otro" },
+    { "source": "ultimahora.com", "text": "Una columna de opinión paraguaya describe cierta política local como un chiste de mal gusto.", "category": "otro" },
+    { "source": "acento.com.do", "text": "Un columnista dominicano se disculpa por un chiste de mal gusto en medio de una nota seria.", "category": "otro" },
+    { "source": "facebook.com", "text": "Una página de humor publica: \"son un chiste, pero un chiste de mal gusto\".", "category": "otro" },
+    { "source": "mediavida.com", "text": "En un foro de fútbol, opinan que cierto jugador es top de segundo nivel, \"para mi gusto\".", "category": "otro" },
+    { "source": "mediavida.com", "text": "En otro hilo, critican el diseño de un buzo del club: \"para mi gusto, cutrez máxima\".", "category": "otro" },
+    { "source": "expresiones.info", "text": "Un texto sobre refranes cita un viejo aviso de Volvo: \"sobre gustos no hay nada escrito, pero este auto escribe una página nueva\".", "category": "otro" },
+    { "source": "bloguerarefranera.blogspot.com", "text": "En los comentarios de un blog, agradecen la explicación del dicho \"sobre gustos no hay nada escrito\".", "category": "otro" },
+    { "source": "expresionesyrefranes.com", "text": "Un blog de expresiones resume la idea con otro dicho: \"en la variedad está el gusto\".", "category": "otro" },
+    { "source": "sercolombiano.com", "text": "Una nota de moda dice que hoy un smartwatch o unos auriculares también hablan de los gustos de quien los usa.", "category": "otro" },
+    { "source": "soygalguero.foroactivo.com", "text": "En un foro de galgos, alguien defiende su derecho a opinar sobre los perros \"bajo mi gusto personal\".", "category": "otro" },
+    { "source": "filmaffinity.com", "text": "Existe una película llamada \"Ya no me siento a gusto en este mundo\", con críticas mixtas de los usuarios.", "category": "otro" }
   ]
 }
