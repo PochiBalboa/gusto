@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-09-25T00:00:00Z",
+  "note": "Snapshot curado a mano a partir de búsquedas reales en la web (no automático). Pedile a Claude una actualización cuando quieras uno nuevo.",
+  "items": [
+    {
+      "source": "cookpad.com/ar",
+      "text": "En una receta de tofu al horno, la sal y las especias van todas \"a gusto\", como a cada quien le guste.",
+      "category": "comida"
+    },
+    {
+      "source": "foro de recetas (abroparaguas.com)",
+      "text": "Le quedó muy rico, aunque para su gusto se pasó un poco con la guindilla picante.",
+      "category": "comida"
+    },
+    {
+      "source": "juliaysusrecetas.com",
+      "text": "Para su gusto, la salsa del bacalao al chilindrón queda mejor bien triturada.",
+      "category": "comida"
+    },
+    {
+      "source": "foro de recetas (abroparaguas.com)",
+      "text": "Las berenjenas le parecieron ricas, pero para su gusto les faltaba más relleno.",
+      "category": "comida"
+    },
+    {
+      "source": "cofrederecuerdosmusicales.blogspot.com",
+      "text": "Sobre un disco de abril: dice que no arriesga nada, pero a su gusto le dan ganas de escucharlo más.",
+      "category": "musica"
+    },
+    {
+      "source": "woodyjagger.com",
+      "text": "A su gusto, el nuevo disco supera a los últimos trabajos de la banda que compara.",
+      "category": "musica"
+    },
+    {
+      "source": "mitocadiscosdual.blogspot.com",
+      "text": "Destaca el gusto impecable de una banda gallega para los arreglos de sus nuevas canciones.",
+      "category": "musica"
+    },
+    {
+      "source": "linkedin.com",
+      "text": "Un posteo saluda a toda una ciudad: \"mucho gusto en conocerte, Montevideo\".",
+      "category": "gente"
+    },
+    {
+      "source": "facebook.com",
+      "text": "Despide el año con un video: \"fue un gusto conocerte, 2025\", antes de recibir al que viene.",
+      "category": "gente"
+    },
+    {
+      "source": "miviajeporelmundo.com",
+      "text": "Una lectora le escribe a una bloguera que le dio muchísimo gusto encontrarse con su blog de viajes.",
+      "category": "gente"
+    },
+    {
+      "source": "blogtravel.com.ar",
+      "text": "Sostiene que viajar es, ante todo, una cuestión de gusto personal, no de tachar lugares famosos de una lista.",
+      "category": "vida"
+    },
+    {
+      "source": "news.booking.com",
+      "text": "Un informe de tendencias de viajes 2026 dice que la gente decora su cocina con souvenirs que reflejan su gusto personal.",
+      "category": "vida"
+    }
+  ]
+}
